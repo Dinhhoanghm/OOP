@@ -1,16 +1,17 @@
-package ict.aims;
+package AimsProject.hust.soict.dsai.aims;
 
-import AimsProject.hust.soict.ict.aims.cart.Cart;
-import AimsProject.hust.soict.ict.aims.media.Book;
-import AimsProject.hust.soict.ict.aims.media.CompactDisc;
-import AimsProject.hust.soict.ict.aims.media.DigitalVideoDisc;
-import AimsProject.hust.soict.ict.aims.media.Media;
-import AimsProject.hust.soict.ict.aims.store.Store;
+
+import AimsProject.hust.soict.dsai.aims.cart.Cart;
+import AimsProject.hust.soict.dsai.aims.media.Book;
+import AimsProject.hust.soict.dsai.aims.media.CompactDisc;
+import AimsProject.hust.soict.dsai.aims.media.DigitalVideoDisc;
+import AimsProject.hust.soict.dsai.aims.media.Media;
+import AimsProject.hust.soict.dsai.aims.store.Store;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class AIMS {
+public class Main {
     public static Cart order = new Cart();
     public static List<Media> itemsinOrdered = order.getItemsOrdered();
     public static Store store = new Store();

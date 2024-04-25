@@ -1,7 +1,8 @@
-package ict.test.disc;
+package AimsProject.hust.soict.dsai.test.disc;
 
-import AimsProject.hust.soict.ict.aims.media.CompactDisc;
-import AimsProject.hust.soict.ict.aims.media.Track;
+
+import AimsProject.hust.soict.dsai.aims.media.CompactDisc;
+import AimsProject.hust.soict.dsai.aims.media.Track;
 
 public class CompactDiscTest {
     public static void main(String[] args) {

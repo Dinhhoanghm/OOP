@@ -1,6 +1,6 @@
-package ict.test.disc;
+package AimsProject.hust.soict.dsai.test.disc;
 
-import AimsProject.hust.soict.ict.aims.media.*;
+import AimsProject.hust.soict.dsai.aims.media.*;
 
 import java.util.ArrayList;
 import java.util.List;

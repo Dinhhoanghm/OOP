@@ -1,10 +1,11 @@
-package ict.aims.cart;
+package AimsProject.hust.soict.dsai.aims.cart;
 
-import AimsProject.hust.soict.ict.aims.media.Media;
+import AimsProject.hust.soict.dsai.aims.media.Media;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cart {
+public class Cart{
     private List<Media> itemsOrdered = new ArrayList<Media>();
 
     public List<Media> getItemsOrdered() {
@@ -57,6 +58,5 @@ public class Cart {
         }
         if(count == 0) System.out.println("No items found");
     }
-
 
 }

@@ -1,6 +1,7 @@
-package ict.aims.store;
+package AimsProject.hust.soict.dsai.aims.store;
 
-import AimsProject.hust.soict.ict.aims.media.Media;
+
+import AimsProject.hust.soict.dsai.aims.media.Media;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package ict.aims.media;
+package AimsProject.hust.soict.dsai.aims.media;
 
 import java.util.Objects;
 
