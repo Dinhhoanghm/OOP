@@ -1,4 +1,4 @@
-package Lab002;
+package OtherProjects.hust.soict.dsai.Lab002;
 
 public class DigitalVideoDisc {
     private String title;
