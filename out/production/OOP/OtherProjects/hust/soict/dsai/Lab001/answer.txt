@@ -1,0 +1,4 @@
+Ex 6.1:
+    - if users choose “Cancel”? the "You has chosen "No"." will be printed
+    - To customize the options with only "Yes" or "No" you can change the line:
+        int option = JOptionPane.showConfirmDialog(null, "Do you want to change to the first class ticket?", null, JOptionPane.YES_NO_OPTION);
