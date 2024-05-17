@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CompactDisc extends Disc implements Playable{
+public class CompactDisc extends Disc implements Playable {
     private String artist;
     private List<Track> tracks = new ArrayList<Track>();
 
@@ -18,6 +18,11 @@ public class CompactDisc extends Disc implements Playable{
         this.artist = artist;
     }
 
+    public CompactDisc(int id, String title, String category, float cost, String artist, List<Track> tracks) {
+        super(id, title, category, cost);
+        this.artist = artist;
+        this.tracks = tracks;
+    }
     public CompactDisc() {
     }
 
@@ -26,34 +31,47 @@ public class CompactDisc extends Disc implements Playable{
         return artist;
     }
 
-    public void addTrack(Track trackName){
-        if(!tracks.contains(trackName)){
-            tracks.add(trackName);
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
+
+    public List<String> gettrackName() {
+        List<String> tracksName = new ArrayList<String>();
+        for (Track track : tracks) {
+            tracksName.add(track.getTitle());
         }
-        else{
+        return tracksName;
+    }
+
+    public void addTrack(Track trackName) {
+        if (!tracks.contains(trackName)) {
+            tracks.add(trackName);
+        } else {
             System.out.println("The track is already in the list");
         }
     }
-    public void removeTrack(Track trackName){
-        if(tracks.contains(trackName)){
+
+    public void removeTrack(Track trackName) {
+        if (tracks.contains(trackName)) {
             tracks.remove(trackName);
-        }
-        else{
+        } else {
             System.out.println("The track is not in the list");
         }
     }
 
     @Override
-    public int getLength(){
+    public int getLength() {
         int totalLength = 0;
-        for(int i = 0; i < tracks.size(); i++){
+        for (int i = 0; i < tracks.size(); i++) {
             totalLength += tracks.get(i).getLength();
         }
         return totalLength;
     }
+
     @Override
     public void play() {
-        for(int i = 0; i < tracks.size(); i++){
+        for (int i = 0; i < tracks.size(); i++) {
             tracks.get(i).play();
         }
     }
