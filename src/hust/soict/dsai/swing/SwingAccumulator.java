@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class SwingAccumulator extends JFrame {
+public class gSwingAccumulator extends JFrame {
     private JTextField tfInput;
     private JTextField tfOutput;
     private int sum = 0;
