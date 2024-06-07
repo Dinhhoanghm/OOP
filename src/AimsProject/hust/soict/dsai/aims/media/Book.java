@@ -1,47 +1,65 @@
 package AimsProject.hust.soict.dsai.aims.media;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Book extends Media {
-    private List<String> authors = new ArrayList<String>();
+    private ArrayList<String> authors = new ArrayList<String>();
+    private int length;
 
-    public List<String> getAuthors() {
+    private String content;
+    private ArrayList<String> contentTokens;
+    private Map<String, Integer> wordFrequency = new TreeMap<String, Integer>();
+
+    public Book(String title, int length) {
+        super(title);
+        this.length = length;
+    }
+
+    public Book(String title, String category, float cost, int length) {
+        super(title, category, cost);
+        this.length = length;
+    }
+
+    public Book(String title, String category, float cost) {
+        super(title, category, cost);
+    }
+
+    public Book(String title, String category, float cost, ArrayList<String> authors, int length, String content) {
+        super(title, category, cost);
+        this.authors = authors;
+        this.length = length;
+
+        this.content = content;
+        processContent();
+    }
+
+    public ArrayList<String> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<String> authors) {
-        this.authors = authors;
+    public int getLength() {
+        return this.length;
     }
 
-    public Book(int id, String title, String category, int length, String... authors) {
-        super(id, title, category, length);
-        for (String author : authors) {
-            this.authors.add(author);
-        }
+    public String getContent() {
+        return this.content;
     }
 
-    public Book(int id, String title, String category, float cost, String... authors) {
-        super(id, title, category, cost);
-        for (String author : authors) {
-            this.authors.add(author);
-        }
+    public void setContent(String content) {
+        this.content = content;
+        processContent();
     }
 
-    public Book(int id, String title, String category, float cost, List<String> authors) {
-        super(id, title, category, cost);
-        this.authors = authors;
+    public Map<String, Integer> getWordFrequency() {
+        return this.wordFrequency;
     }
 
-    public Book(int id, String title, String category, float cost) {
-        super(id, title, category, cost);
-    }
 
     public void addAuthor(String authorName) {
-        if (!authors.contains(authorName)) {
-            authors.add(authorName);
+        if (authors.contains(authorName)) {
+            System.out.println("This author has already been in the list");
         } else {
-            System.out.println("The author is already in the author list");
+            authors.add(authorName);
         }
     }
 
@@ -49,13 +67,27 @@ public class Book extends Media {
         if (authors.contains(authorName)) {
             authors.remove(authorName);
         } else {
-            System.out.println("The author is not in the author list");
+            System.out.println("This author is not in the list");
         }
     }
 
-
-    @Override
     public String toString() {
-        return "Book: " + super.toString() + " - " + getAuthors();
+        return this.getTitle() + "-" + this.getCategory() + "-" + this.authors
+                + "-" + this.length + ": " + this.getCost() + " $" + "\n" + content;
     }
+
+    public void processContent() {
+        this.contentTokens = new ArrayList<String>(Arrays.asList(this.content.split(" ")));
+        Collections.sort(contentTokens);
+
+        for (String token : this.contentTokens) {
+            if (wordFrequency.get(token) == null) {
+                wordFrequency.put(token, 1);
+            } else {
+                wordFrequency.put(token, (wordFrequency.get(token) + 1));
+            }
+        }
+
+    }
+
 }

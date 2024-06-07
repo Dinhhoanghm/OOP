@@ -1,47 +1,63 @@
 package AimsProject.hust.soict.dsai.aims.media;
 
-import java.util.Objects;
+import AimsProject.hust.soict.dsai.aims.exception.PlayerException;
 
-public class DigitalVideoDisc extends Disc implements Playable{
-    public DigitalVideoDisc(int id, String title, String category, float cost, int length, String director) {
-        super(id, title, category, cost, length, director);
+public class DigitalVideoDisc extends Disc implements Playable {
+    private String director;
+    private int length;
+
+    private static int nbDigitalVideoDiscs = 0;
+
+    public String getDirector() {
+        return director;
     }
 
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-        super(title, category, director, length, cost);
+    public int getLength() {
+        return length;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public DigitalVideoDisc(String title) {
         super(title);
+        nbDigitalVideoDiscs++;
     }
 
     public DigitalVideoDisc(String title, String category, float cost) {
         super(title, category, cost);
+        nbDigitalVideoDiscs++;
     }
 
-    public DigitalVideoDisc(String title, String category, float cost, String director) {
-        super(title, category, cost, director);
+    public DigitalVideoDisc(String title, String category, String director, float cost) {
+        super(title, category, cost);
+        this.director = director;
+        nbDigitalVideoDiscs++;
     }
 
-    public DigitalVideoDisc(int id, String title, String category, float cost) {
-        super(id, title, category, cost);
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        super(title, category, cost);
+        this.director = director;
+        this.length = length;
+        nbDigitalVideoDiscs++;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof DigitalVideoDisc that)) return false;
-        return getLength() == that.getLength() && Float.compare(getCost(), that.getCost()) == 0 && Objects.equals(getTitle(), that.getTitle()) && Objects.equals(getCategory(), that.getCategory()) && Objects.equals(getDirector(), that.getDirector());
-    }
-
-    @Override
     public String toString() {
-        return "DVD: " + super.toString();
+        return "DVD" + " - " + this.getTitle() + " - " + this.getCategory() + " - " + director + " - " + length + ": " + this.getCost() + " $";
     }
 
-    @Override
-    public void play() {
-        System.out.println("Playing DVD: " + this.getTitle());
-        System.out.println("DVD length: " + this.getLength());
+    public StringBuffer play() throws PlayerException {
+        if (this.getLength() > 0) {
+            System.out.println("Playing DVD: " + this.getTitle());
+            System.out.println("DVD length: " + this.getLength());
+
+            StringBuffer info = new StringBuffer("");
+            info.append("Playing DVD: " + this.getTitle() + "\n" + "DVD length: " + this.getLength());
+            return info;
+        } else {
+            throw new PlayerException("ERROR: DVD length is non-positive!");
+        }
+
     }
 }

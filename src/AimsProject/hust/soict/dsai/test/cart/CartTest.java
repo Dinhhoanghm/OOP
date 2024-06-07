@@ -1,28 +1,18 @@
 package AimsProject.hust.soict.dsai.test.cart;
 
-
-import AimsProject.hust.soict.dsai.aims.cart.Cart;
-import AimsProject.hust.soict.dsai.aims.media.DigitalVideoDisc;
-
 public class CartTest {
     public static void main(String[] args) {
-        //Create a new cart
-        Cart anOrder = new Cart();
 
-        //Create new dvd objects and add them to the cart
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
-        anOrder.addMedia(dvd1);
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star War", "Science Fiction", "Geoger Lucas", 87, 24.95f);
-        anOrder.addMedia(dvd2);
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        anOrder.addMedia(dvd3);
-
-        //Remove a disc form cart
-        anOrder.removeMedia(dvd2);
-//        anOrder.removeDigitalVideoDisc(dvd3);
-        //print total cost of the items in the cart
-        anOrder.print();
-
-        anOrder.SearchbyTitle("Aladin");
+        //        Cart cart = new Cart();
+//        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King",
+//                "Animation", "Roger Allers", 87, 19.95f);
+//        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars",
+//                "Science Fiction", "George Lucas", 87, 24.95f);
+//        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
+//                "Animation", 18.99f);
+//        cart.addDigitalVideoDisc(dvd1);
+//        cart.addDigitalVideoDisc(dvd2);
+//        cart.addDigitalVideoDisc(dvd3);
+//        cart.displayCart();
     }
 }
